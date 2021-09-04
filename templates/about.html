@@ -1,0 +1,42 @@
+{% extends 'layouts.html' %}
+{% load static %}
+
+
+{% block title %}
+    About_Home
+{% endblock %}
+
+
+
+{% block contents %}
+<div class="about_desc">
+
+    <div class="row" style="background: url('/static/images/bg-image.jpg') no-repeat; background-size: cover;">
+        <div class="col-sm-12 col-md-6 col-lg-8">
+            <p class="p-4 text-justify text-white">
+                <b>Hi There!</b><br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quis facilis nobis esse fugit impedit dolores ab eos voluptatum! Aliquam in maiores
+                odio excepturi obcaecati accusamus molestias, necessitatibus amet? Facilis voluptatum 
+                non molestiae saepe. Ut dignissimos molestiae consequuntur quos autem soluta illum,
+                accusantium corrupti nostrum quis est voluptas sit? Numquam porro assumenda iusto,
+                fuga provident est, rerum quisquam quaerat quos cumque dicta nemo maxime debitis,
+                eligendi aperiam libero neque quo. Hic maiores iusto repudiandae eaque? Eligendi,
+                ipsam tempora, nostrum id iste provident a facere aperiam neque voluptatibus eaque
+                ut minus possimus ex illo minima? Doloribus, modi sint culpa corporis facilis labore.
+            </p>
+        </div>
+    
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <img src="{% static 'images/MazharulP_.png' %}"
+             class="d-flex justify-content-center img-fluid image-responsive" alt="abt_desc_image" width="72%" height="100%" opacity="0.1"/>
+        </div>
+    
+    </div>
+</div>
+
+<div class="jumbotron text-center">
+    <h1 class="animate__animated animate__zoomInUp animate__delay-1s text-primary">  About Page Contents </h1>
+</div>
+
+{% endblock  %}

@@ -1,0 +1,130 @@
+{% extends 'layouts.html' %}
+<!-- 'layouts.html(ext1 )' TO 'contact' To 'Display.html' -->
+
+{% load static %}
+
+
+
+{% block title %}
+Login
+{% endblock %}
+
+
+{% block links %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+{% endblock %}
+
+
+{% block contents %}
+<main id="main" style="background: #b27bc0">
+
+  <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Login Account >>> Profile Page </h2>
+      </div>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+  <!-- ======= Login Section ======= -->
+  
+
+  <section id="contact" class="contact">
+    <div class="container">
+
+
+      <!-- Login Form -->
+
+      <div class="row mt-5 justify-content-center" data-aos="fade-up">
+        <div class="col-lg-5 col-md-6 col-sm-12 bg-white p-3" style="border-radius: 24px;">
+            <h4 class="text-center text-success">Log In Your Account</h4>   <hr>
+
+            {% for message in messages %}
+            
+            <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            
+            {{ message }}
+            </div>
+            
+            {% endfor %}
+            
+            
+            <form action="" method="post" role="form"
+             style="border: 1px solid #05f082; padding: 15px; background:#b3b1b1;">
+                
+                {% csrf_token %}
+
+              <div class="form-group">
+                <label for="name">Name</label>
+                  <div class="input-form-group mb-3">
+                    <div class="input-group-append">
+                        <span class="input-group-text text-warning"><i class="fas fa-user"></i></span>
+                        
+                        <input type="text" class="form-control  text-center" name="name" id="name" placeholder="Your User Name"
+                      data-rule="minlen:3" data-msg="Please enter Your Username" required />
+                    </div>
+    
+                    <div class="validate"></div>
+                  </div>
+              </div>
+
+
+               <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-form-group mb-3">
+                    <div class="input-group-append">
+                        <span class="input-group-text text-warning"><i class="fas fa-key"></i></span>
+                        <input type="password" name="password" class="form-control text-center" id="name" placeholder="Your Password" 
+                        data-rule="minlen:8" data-msg="Please enter at least 8 chars" required />
+                    </div>
+
+                    <div class="validate"></div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customControlInline">
+                    <label class="custom-control-label" for="customControlInline">Remember me</label>
+                </div>
+            </div>
+
+
+            <div class="text-center d-flex justify-content-center">
+              <button type="submit" class="btn btn-success btn-block" style="border-radius: 24px;"> Log In </button>
+            </div>
+
+
+            <hr class="bg-primary">
+            <div class="d-flex justify-content-around mt-3">
+                <div> <small> Don't have an account? </small> </div>
+                <div class="mb-2">
+                   <a href="{% url 'register' %}" target="_blank"> <h6  class="text-success">Register Here, Now !</h6></a>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <a href="{% url 'forgotPass' %}" class="text-danger" target="_blank">Forgotten your password? </a>
+            </div>
+
+          </form>
+          
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+
+
+{% endblock %}

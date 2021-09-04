@@ -1,0 +1,25 @@
+{% extends 'layouts.html' %}
+
+
+{% block title %}
+ Services
+{% endblock %}
+
+
+{% block contents %} 
+    <div class="servicSectione">
+        <div class="row">
+            <div class="design col-sm-12 col-md-12 col-lg-6 p-3">
+                <h3 class="text-warning p-3">See Our Provided Services</h3>
+                <ul class="materials_">
+                    
+                        {% for item in design_names %}
+                        <li class="items text-success"> {{ item }} </li>
+                        {% endfor %}
+                    
+                </ul>
+            </div>
+            <div class="develop col-sm-12 col-md-12 col-lg-6"></div>
+        </div>
+    </div>
+{% endblock %}

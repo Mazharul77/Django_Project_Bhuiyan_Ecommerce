@@ -1,0 +1,145 @@
+{% extends 'layouts.html' %}
+<!-- 'layouts.html(ext1 )' TO 'contact' To 'Display.html' -->
+
+{% load static %}
+
+
+
+{% block title %}
+Registration
+{% endblock %}
+
+
+{% block links %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+{% endblock %}
+
+
+{% block contents %}
+<main id="main" style="background: #b27bc0">
+
+  <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Account Registration</h2>
+      </div>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+  <!-- ======= Login Section ======= -->
+  
+
+  <section id="contact" class="contact">
+    <div class="container">
+
+
+      <!-- Login Form -->
+
+      <div class="row mt-5 justify-content-center" data-aos="fade-up">
+        <div class="col-lg-5 col-md-6 col-sm-12 bg-white p-3" style="border-radius: 24px;">
+            <h4 class="text-center text-success">Create A New Account</h4>   <hr>
+
+            {% for message in messages %}
+            
+            <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            
+            {{ message }}
+            </div>
+            
+            {% endfor %}
+            
+            <form action="" method="post" role="form"
+             style="border: 1px solid #05f082; padding: 15px; background:#b3b1b1;">
+                
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="name">Your Full Name</label>
+                      <div class="input-form-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text text-warning"><i class="fas fa-user"></i></span>
+                            
+                            <input type="text" class="form-control  text-center" name="name" id="email" placeholder="Please Enter Full Name"
+                          data-rule="name" data-msg="Please enter a valid name" required />
+                        </div>
+        
+                        <div class="validate"></div>
+                      </div>
+                  </div>
+    
+
+              <div class="form-group">
+                <label for="Email">Email</label>
+                  <div class="input-form-group mb-3">
+                    <div class="input-group-append">
+                        <span class="input-group-text text-warning"><i class="fas fa-user"></i></span>
+                        
+                        <input type="email" class="form-control  text-center" name="email" id="email" placeholder="Your Email Address"
+                      data-rule="email" data-msg="Please enter a valid email" required />
+                    </div>
+    
+                    <div class="validate"></div>
+                  </div>
+              </div>
+
+
+               <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-form-group mb-3">
+                    <div class="input-group-append">
+                        <span class="input-group-text text-warning"><i class="fas fa-key"></i></span>
+                        <input type="password" name="password" class="form-control text-center" id="password" placeholder="Your Password" 
+                        data-rule="minlen:8" data-msg="Please enter at least 8 chars" required />
+                    </div>
+
+                    <div class="validate"></div>
+                </div>
+              </div>
+
+              
+              <div class="form-group">
+                <label for="password">Confirm Password</label>
+                <div class="input-form-group mb-3">
+                    <div class="input-group-append">
+                        <span class="input-group-text text-warning"><i class="fas fa-key"></i></span>
+                        <input type="password" name="confirm_password" class="form-control text-center" id="confirm_password" placeholder="Confirm Your Password" 
+                        data-rule="minlen:8" data-msg="Please enter at least 8 chars" required />
+                    </div>
+
+                    <div class="validate"></div>
+                </div>
+              </div>
+
+            <div class="text-center d-flex justify-content-center">
+              <button type="submit" class="btn btn-success btn-block" style="border-radius: 24px;"> Register </button>
+            </div>
+
+
+            <hr class="bg-primary">
+            <div class="d-flex justify-content-around mt-3">
+                <small> Already Have An Account? Then You Can
+                 <a href="{% url 'login' %}" target="_blank"> Log In Now !</a>
+                </small>    
+            </div>
+
+
+          </form>
+          
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+
+
+{% endblock %}
